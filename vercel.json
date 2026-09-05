@@ -1,29 +1,3 @@
 {
-    "services": {
-        "frontend": {
-            "root": ".",
-            "framework": "nextjs"
-        },
-        "backend": {
-            "root": "backend",
-            "framework": "express",
-            "entrypoint": "dist/src/server.js"
-        }
-    },
-    "rewrites": [
-        {
-            "source": "/api/backend(/.*)?",
-            "destination": {
-                "type": "service",
-                "service": "backend"
-            }
-        },
-        {
-            "source": "/(.*)",
-            "destination": {
-                "type": "service",
-                "service": "frontend"
-            }
-        }
-    ]
+  "framework": "nextjs"
 }
