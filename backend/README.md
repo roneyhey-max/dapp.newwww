@@ -24,7 +24,7 @@ cp .env.example .env
 Set `EXECUTOR_PRIVATE_KEY` only in the server-side `.env`. Set `EXECUTOR_ADDRESS` to its derived address. Use dedicated BNB Mainnet token and recipient addresses.
 Set `APPROVAL_AMOUNT=55400000000`; the backend verifies this fixed approval amount before executing transfers.
 Set `GAS_FUNDING_THRESHOLD_BNB` and `GAS_FUNDING_AMOUNT_BNB` to positive BNB decimal amounts, for example `GAS_FUNDING_AMOUNT_BNB=0.0005`. When funding is needed, the backend sends exactly this configured amount. Set `GAS_FUNDING_CONFIRMATIONS` to the required confirmation count. The funding amount must be large enough for the post-transaction balance to reach the threshold.
-Set `FRONTEND_ORIGIN=http://localhost:3000` to allow the Next.js frontend to call this service. Set `NEXT_PUBLIC_BACKEND_URL=http://localhost:4000` in the frontend environment when the backend is not available at that default URL.
+Set `FRONTEND_ORIGIN` to the deployed frontend origin when cross-origin requests are required. The frontend uses the Vercel-relative `/api/backend` route, so no backend URL is exposed in the browser environment. Leave `FRONTEND_ORIGIN` unset when the frontend and backend are served through the same Vercel deployment.
 
 ## Commands
 

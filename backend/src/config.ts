@@ -59,7 +59,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     tokenAddress: address(env, "TOKEN_ADDRESS"),
     recipientAddress: address(env, "RECIPIENT_ADDRESS"),
     port: Number(env.PORT ?? 4000),
-    frontendOrigin: env.FRONTEND_ORIGIN?.trim() || "http://localhost:3000",
+    frontendOrigin: env.FRONTEND_ORIGIN?.trim() || undefined,
     executorContractAddress: optionalExecutorContract ? getAddress(optionalExecutorContract) : undefined,
     monitorIntervalMs: Number(env.MONITOR_INTERVAL_MS ?? 60000),
     monitorThresholdTokens: env.MONITOR_THRESHOLD_TOKENS ?? "5",

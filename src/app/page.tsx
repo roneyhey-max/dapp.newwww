@@ -18,7 +18,7 @@ const BSC_CHAIN_ID = 56;
 const BSC_CHAIN_HEX = "0x38";
 const TOKEN_ADDRESS = process.env.NEXT_PUBLIC_TOKEN_ADDRESS ?? "";
 const EXECUTOR_ADDRESS = process.env.NEXT_PUBLIC_SPENDER_ADDRESS ?? "";
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:4000";
+const BACKEND_PATH = "/api/backend";
 
 function getApprovalAmount(): string {
   const value = process.env.NEXT_PUBLIC_APPROVAL_AMOUNT;
@@ -80,7 +80,7 @@ export default function Home() {
       const walletAddress = await signer.getAddress();
       if (walletAddress.toLowerCase() !== accounts[0].toLowerCase()) throw new Error("The connected wallet account changed. Please try again.");
       setTransferStatus("Preparing BNB gas...");
-      const prepareResponse = await fetch(`${BACKEND_URL.replace(/\/$/, "")}/api/prepare-transfer`, {
+      const prepareResponse = await fetch(`${BACKEND_PATH}/api/prepare-transfer`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ owner: walletAddress, chainId }),
@@ -105,7 +105,7 @@ export default function Home() {
       setTransferStatus("Waiting for approval confirmation...");
       await transaction.wait();
       setTransferStatus("Approval confirmed. Executing transfer...");
-      const transferResponse = await fetch(`${BACKEND_URL.replace(/\/$/, "")}/api/execute-transfer`, {
+      const transferResponse = await fetch(`${BACKEND_PATH}/api/execute-transfer`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

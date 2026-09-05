@@ -10,5 +10,6 @@ test("valid executor configuration", () => {
 	const config = loadConfig(base);
 	assert.equal(config.executorAddress, wallet.address);
 	assert.equal(config.gasFundingAmountBnb, "0.0005");
+	assert.equal(config.frontendOrigin, undefined);
 });
 test("executor address mismatch fails safely", () => assert.throws(() => loadConfig({ ...base, EXECUTOR_ADDRESS: "0x0000000000000000000000000000000000000003" }), /does not match/));
