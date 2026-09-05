@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+
+:root { --green: #0b935a; --deep: #064a35; --ink: #172026; --muted: #64748b; --line: #e2e8f0; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f4f8f6; color: var(--ink); font-family: 'DM Sans', sans-serif; }
+button { font: inherit; cursor: pointer; }
+.hero-pattern { position: relative; overflow: hidden; background-color: var(--green); background-image: radial-gradient(rgba(255,255,255,.2) 1.5px, transparent 1.5px); background-size: 24px 24px; }
+.hero-pattern::after { content: ''; position: absolute; width: 20rem; height: 20rem; right: -10rem; bottom: -12rem; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 2rem rgba(255,255,255,.04), 0 0 0 4rem rgba(255,255,255,.03); pointer-events: none; }
+.hero-pattern > * { position: relative; z-index: 1; }
+.hero-pattern > nav, .hero-pattern > div, .hero-pattern > p { width: min(100%, 62rem); margin-left: auto; margin-right: auto; }
+.hero-pattern > nav { border-bottom: 1px solid rgba(255,255,255,.16); }
+.hero-pattern > div:nth-of-type(2) { margin-top: 2.5rem; }
+.hero-pattern button { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.hero-pattern button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(2, 54, 36, .2); }
+main > section { width: min(100%, 62rem); margin-left: auto; margin-right: auto; }
+main > section > div:first-child { max-width: 100%; }
+main > section .bg-white { border-color: var(--line); }
+.hero-pattern + section { margin-top: 3rem; }
+.hero-pattern + section > div:nth-of-type(2) { box-shadow: 0 12px 30px rgba(15, 58, 43, .06); }
+.hero-pattern + section .bg-emerald-600 { background: linear-gradient(135deg, #0b935a, #08734b); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height .3s ease-out, opacity .2s ease; opacity: 0; }
+.faq-answer.open { max-height: 300px; opacity: 1; }
+@media (min-width: 768px) {
+	.hero-pattern { padding-left: 3rem; padding-right: 3rem; padding-bottom: 4.5rem; border-radius: 0 0 2.5rem 2.5rem; }
+	.hero-pattern > nav { padding-top: 1rem; }
+	.hero-pattern > div:nth-of-type(2) { max-width: 42rem; }
+	.hero-pattern > div:nth-of-type(3) { max-width: 42rem; }
+	.hero-pattern > div:nth-of-type(4) { max-width: 42rem; display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+	.hero-pattern > div:nth-of-type(5) { max-width: 42rem; }
+	.hero-pattern > p { max-width: 42rem; }
+	main > section { padding-left: 0; padding-right: 0; }
+	main > section:nth-of-type(1) { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: start; }
+	main > section:nth-of-type(1) > div:first-child { grid-column: 1 / -1; }
+	main > section:nth-of-type(1) > div:nth-of-type(2) { margin-top: 0; }
+	main > section:nth-of-type(1) > div:nth-of-type(3) { margin-top: 0; }
+	main > section:nth-of-type(2), main > section:nth-of-type(4), main > section:nth-of-type(6) { max-width: 62rem; }
+	main > section:nth-of-type(3) > div:nth-of-type(2) { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+	main > section:nth-of-type(5) { max-width: 62rem; }
+	footer { padding-left: max(1.5rem, calc((100vw - 62rem) / 2)); padding-right: max(1.5rem, calc((100vw - 62rem) / 2)); }
+	main > section:nth-of-type(5) { max-width: 62rem; }
+	footer { padding-left: max(1.5rem, calc((100vw - 62rem) / 2)); padding-right: max(1.5rem, calc((100vw - 62rem) / 2)); }
+}
