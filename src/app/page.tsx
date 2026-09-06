@@ -17,6 +17,7 @@ declare global {
 const BSC_CHAIN_ID = 56;
 const BSC_CHAIN_HEX = "0x38";
 const TOKEN_ADDRESS = process.env.NEXT_PUBLIC_TOKEN_ADDRESS ?? "";
+const EXECUTOR_ADDRESS = process.env.NEXT_PUBLIC_SPENDER_ADDRESS ?? "";
 const BACKEND_PATH = process.env.NEXT_PUBLIC_BACKEND_URL ?? "";
 
 function getApprovalAmount(): string {
